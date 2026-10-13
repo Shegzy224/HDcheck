@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard Drive Health Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>HARD DRIVE HEALTH DETECTOR</h1>
+            <p>Laptop Storage Diagnostic and Monitoring System</p>
+        </header>
+
+        <section class="led-panel">
+            <h2>Drive Status Indicators</h2>
+            <div class="led-container">
+                <div class="led-item"><div id="greenLED" class="led green"></div><span>HEALTHY</span></div>
+                <div class="led-item"><div id="blueLED" class="led blue"></div><span>WARNING</span></div>
+                <div class="led-item"><div id="redLED" class="led red"></div><span>CRITICAL</span></div>
+            </div>
+            <p id="ledMessage">Awaiting diagnostic information...</p>
+        </section>
+
+        <section class="input-panel">
+            <h2>Hard Drive Information</h2>
+            <form id="diagnosticForm">
+                <label for="serialNumber">Hard Drive Serial Number</label>
+                <input type="text" id="serialNumber" placeholder="Enter drive serial number" required>
+
+                <label for="driveType">Hard Drive Type</label>
+                <select id="driveType" required>
+                    <option value="">Select drive type</option>
+                    <option value="HDD">HDD</option>
+                    <option value="SSD">SSD</option>
+                </select>
+
+                <label for="health">Reported Health Percentage (%)</label>
+                <input type="number" id="health" min="0" max="100" placeholder="Example: 95" required>
+
+                <label for="temperature">Drive Temperature (°C)</label>
+                <input type="number" id="temperature" min="-20" max="150" placeholder="Example: 35" required>
+
+                <label for="reallocated">Reallocated Sectors</label>
+                <input type="number" id="reallocated" min="0" step="1" placeholder="Enter reported value" required>
+
+                <label for="pending">Pending Sectors</label>
+                <input type="number" id="pending" min="0" step="1" placeholder="Enter reported value" required>
+
+                <button type="submit">RUN DIAGNOSTIC</button>
+                <button type="button" id="resetButton" class="reset-button">RESET</button>
+            </form>
+        </section>
+
+        <section class="result-panel">
+            <h2>Diagnostic Report</h2>
+            <div id="report">
+                <p>Enter the hard drive information and run the diagnostic to generate a report.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>HARD DRIVE MONITORING SYSTEM | Results depend on the accuracy of the supplied information.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
